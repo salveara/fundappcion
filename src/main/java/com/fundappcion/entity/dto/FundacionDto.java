@@ -10,6 +10,8 @@ public class FundacionDto {
     private String direccion;
     private String telefono;
 
+    public  FundacionDto() {}
+
     public FundacionDto(String nombre, String descripcion, String correo, String pagina, String ciudad, String direccion, String telefono) {
         this.nombre = nombre;
         this.descripcion = descripcion;

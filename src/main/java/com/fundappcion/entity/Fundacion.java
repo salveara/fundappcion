@@ -1,91 +1,104 @@
 package com.fundappcion.entity;
 
-import org.springframework.stereotype.Repository;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Table;
+import javax.validation.constraints.NotNull;
 
-@Repository
-
+@Entity
+@Table(name = "FUDACION")
 public class Fundacion {
 
-    private String code;
-    private String name;
-    private String description;
-    private String email;
-    private String page;
-    private String city;
-    private String address;
-    private String phone;
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    private String codigo;
+    @NotNull
+    private String nombre;
+    @NotNull
+    private String descripcion;
+    @NotNull
+    private String correo;
+    private String pagina;
+    private String ciudad;
+    private String direccion;
+    private String telefono;
 
-    public Fundacion(String name, String description, String email, String page, String city, String address, String phone) {
-        this.name = name;
-        this.description = description;
-        this.email = email;
-        this.page = page;
-        this.city = city;
-        this.address = address;
-        this.phone = phone;
+    public Fundacion() {
     }
 
-    public String getCode() {
-        return code;
+    public Fundacion(String nombre, String descripcion, String correo, String pagina, String ciudad, String direccion, String telefono) {
+        this.nombre = nombre;
+        this.descripcion = descripcion;
+        this.correo = correo;
+        this.pagina = pagina;
+        this.ciudad = ciudad;
+        this.direccion = direccion;
+        this.telefono = telefono;
     }
 
-    public void setCode(String code) {
-        this.code = code;
+    public String getCodigo() {
+        return codigo;
     }
 
-    public String getName() {
-        return name;
+    public void setCodigo(String codigo) {
+        this.codigo = codigo;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public String getNombre() {
+        return nombre;
     }
 
-    public String getDescription() {
-        return description;
+    public void setNombre(String nombre) {
+        this.nombre = nombre;
     }
 
-    public void setDescription(String description) {
-        this.description = description;
+    public String getDescripcion() {
+        return descripcion;
     }
 
-    public String getEmail() {
-        return email;
+    public void setDescripcion(String descripcion) {
+        this.descripcion = descripcion;
     }
 
-    public void setEmail(String email) {
-        this.email = email;
+    public String getCorreo() {
+        return correo;
     }
 
-    public String getPage() {
-        return page;
+    public void setCorreo(String correo) {
+        this.correo = correo;
     }
 
-    public void setPage(String page) {
-        this.page = page;
+    public String getPagina() {
+        return pagina;
     }
 
-    public String getCity() {
-        return city;
+    public void setPagina(String pagina) {
+        this.pagina = pagina;
     }
 
-    public void setCity(String city) {
-        this.city = city;
+    public String getCiudad() {
+        return ciudad;
     }
 
-    public String getAddress() {
-        return address;
+    public void setCiudad(String ciudad) {
+        this.ciudad = ciudad;
     }
 
-    public void setAddress(String address) {
-        this.address = address;
+    public String getDireccion() {
+        return direccion;
     }
 
-    public String getPhone() {
-        return phone;
+    public void setDireccion(String direccion) {
+        this.direccion = direccion;
     }
 
-    public void setPhone(String phone) {
-        this.phone = phone;
+    public String getTelefono() {
+        return telefono;
+    }
+
+    public void setTelefono(String telefono) {
+        this.telefono = telefono;
     }
 }

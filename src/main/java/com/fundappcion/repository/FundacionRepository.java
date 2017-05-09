@@ -1,5 +1,22 @@
 package com.fundappcion.repository;
 
+import com.fundappcion.entity.Fundacion;
+import org.springframework.data.repository.CrudRepository;
 
-public class FundacionRepository {
+import java.util.List;
+
+public interface FundacionRepository extends CrudRepository<Fundacion, String> {
+
+    Fundacion save(Fundacion fundacion);
+
+    Fundacion findOne(String code);
+
+    List<Fundacion> findAll();
+
+    List<Fundacion> findByNombreContaining(String nombre);
+
+    List<Fundacion> findByCiudadContaining(String ciudad);
+
+    void delete(Fundacion fundacion);
+
 }
