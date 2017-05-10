@@ -1,7 +1,6 @@
 package com.fundappcion.controller;
 
 import com.fundappcion.entity.Fundacion;
-import com.fundappcion.entity.dto.FundacionDto;
 import com.fundappcion.repository.FundacionRepository;
 import com.fundappcion.service.FundacionService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -31,8 +30,8 @@ public class FundacionController {
     FundacionService service;
 
     @PostMapping(consumes = "Application/json")
-    public ResponseEntity<Fundacion> saveFoundation(@RequestBody FundacionDto fundacionDto) {
-        return new ResponseEntity<Fundacion>(repository.save(service.transformDto(fundacionDto)), HttpStatus.OK);
+    public ResponseEntity<Fundacion> saveFoundation(@RequestBody Fundacion fundacion) {
+        return new ResponseEntity<Fundacion>(repository.save(fundacion), HttpStatus.OK);
     }
 
     @GetMapping
@@ -57,10 +56,9 @@ public class FundacionController {
 
     @PutMapping(path = "/{codigo}", consumes = "Application/json")
     public ResponseEntity<Fundacion> updateFoundation(@ModelAttribute("codigo") String code,
-                                                      @RequestBody FundacionDto fundacionDto) {
-        Fundacion fundacion = repository.findOne(code);
-        fundacion = service.updateFundation(fundacionDto, fundacion);
-        return new ResponseEntity<Fundacion>(repository.save(fundacion), HttpStatus.OK);
+                                                      @RequestBody Fundacion fundacionUpdated) {
+        fundacionUpdated.setCodigo(code);
+        return new ResponseEntity<Fundacion>(repository.save(fundacionUpdated), HttpStatus.OK);
     }
 
     @DeleteMapping("/{codigo}")
