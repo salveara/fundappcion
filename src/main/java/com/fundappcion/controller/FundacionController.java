@@ -16,7 +16,6 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
-import java.util.ArrayList;
 import java.util.List;
 
 @Controller
@@ -31,40 +30,29 @@ public class FundacionController {
 
     @PostMapping(consumes = "Application/json")
     public ResponseEntity<Fundacion> saveFoundation(@RequestBody Fundacion fundacion) {
-        return new ResponseEntity<Fundacion>(repository.save(fundacion), HttpStatus.OK);
+
+        return new ResponseEntity<Fundacion>(service.saveFoundation(fundacion), HttpStatus.OK);
     }
 
     @GetMapping
     public ResponseEntity<List<Fundacion>> getFountations(@RequestParam(name = "codigo", required = false) String code,
                                                           @RequestParam(name = "nombre", required = false) String name,
                                                           @RequestParam(name = "ciudad", required = false) String city) {
-        if (service.stringNotNullOrEmpty(code)) {
-            ArrayList<Fundacion> fundaciones = new ArrayList<Fundacion>();
-            fundaciones.add(repository.findOne(code));
-            return new ResponseEntity<List<Fundacion>>(fundaciones, HttpStatus.OK);
-        } else {
-            if (service.stringNotNullOrEmpty(name)) {
-                return new ResponseEntity<List<Fundacion>>(repository.findByNombreContaining(name), HttpStatus.OK);
-            } else {
-                if (service.stringNotNullOrEmpty(city)) {
-                    return new ResponseEntity<List<Fundacion>>(repository.findByCiudadContaining(city), HttpStatus.OK);
-                }
-            }
-        }
-        return new ResponseEntity<List<Fundacion>>(repository.findAll(), HttpStatus.OK);
+
+        return new ResponseEntity<List<Fundacion>>(service.getFoundationsFromParams(code, name, city), HttpStatus.OK);
     }
 
     @PutMapping(path = "/{codigo}", consumes = "Application/json")
     public ResponseEntity<Fundacion> updateFoundation(@ModelAttribute("codigo") String code,
                                                       @RequestBody Fundacion fundacionUpdated) {
+
         fundacionUpdated.setCodigo(code);
-        return new ResponseEntity<Fundacion>(repository.save(fundacionUpdated), HttpStatus.OK);
+        return new ResponseEntity<Fundacion>(service.saveFoundation(fundacionUpdated), HttpStatus.OK);
     }
 
     @DeleteMapping("/{codigo}")
     public ResponseEntity<Fundacion> deleteFoundation(@ModelAttribute("codigo") String code) {
-        Fundacion fundacion = repository.findOne(code);
-        repository.delete(fundacion);
-        return new ResponseEntity<Fundacion>(fundacion, HttpStatus.OK);
+
+        return new ResponseEntity<Fundacion>(service.deleteFoundation(code), HttpStatus.OK);
     }
 }
