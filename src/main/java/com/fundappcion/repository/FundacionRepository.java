@@ -19,4 +19,5 @@ public interface FundacionRepository extends CrudRepository<Fundacion, String> {
 
     void delete(Fundacion fundacion);
 
+    boolean exists(String nit);
 }

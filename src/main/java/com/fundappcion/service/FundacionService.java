@@ -18,20 +18,22 @@ public class FundacionService {
         return repository.save(fundacion);
     }
 
-    public List<Fundacion> getFoundationsFromParams(String code, String name, String city) {
-        if (stringNotNullOrEmpty(code)) {
-            ArrayList<Fundacion> fundaciones = new ArrayList<Fundacion>();
-            fundaciones.add(repository.findOne(code));
-            return fundaciones;
-        } else {
-            if (stringNotNullOrEmpty(name)) {
+    public Fundacion getFoundationsFromNit(String nit) {
+        return repository.findOne(nit);
+    }
+
+    public boolean foundationExist(String nit) {
+        return repository.exists(nit);
+    }
+
+    public List<Fundacion> getFoundationsFromParams(String name, String city) {
+            if (stringNotNullOrNotEmpty(name)) {
                 return repository.findByNombreContaining(name);
             } else {
-                if (stringNotNullOrEmpty(city)) {
+                if (stringNotNullOrNotEmpty(city)) {
                     return repository.findByCiudadContaining(city);
                 }
             }
-        }
         return repository.findAll();
     }
 
@@ -41,8 +43,15 @@ public class FundacionService {
         return fundacion;
     }
 
-    public boolean stringNotNullOrEmpty(String field) {
+    public boolean checkNotNulleableFields(Fundacion fundacion) {
+        return stringNotNullOrNotEmpty(fundacion.getNit())
+                && stringNotNullOrNotEmpty(fundacion.getNombre())
+                && stringNotNullOrNotEmpty(fundacion.getCorreo());
+    }
+
+    public boolean stringNotNullOrNotEmpty(String field) {
         return field != null || "".equals(field);
     }
+
 
 }

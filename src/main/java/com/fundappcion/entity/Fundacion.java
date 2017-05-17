@@ -12,8 +12,7 @@ import javax.validation.constraints.NotNull;
 public class Fundacion {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    private String codigo;
+    private String nit;
     @NotNull
     private String nombre;
     @NotNull
@@ -28,7 +27,8 @@ public class Fundacion {
     public Fundacion() {
     }
 
-    public Fundacion(String nombre, String descripcion, String correo, String pagina, String ciudad, String direccion, String telefono) {
+    public Fundacion(String nit, String nombre, String descripcion, String correo, String pagina, String ciudad, String direccion, String telefono) {
+        this.nit = nit;
         this.nombre = nombre;
         this.descripcion = descripcion;
         this.correo = correo;
@@ -38,12 +38,12 @@ public class Fundacion {
         this.telefono = telefono;
     }
 
-    public String getCodigo() {
-        return codigo;
+    public String getNit() {
+        return nit;
     }
 
-    public void setCodigo(String codigo) {
-        this.codigo = codigo;
+    public void setNit(String nit) {
+        this.nit = nit;
     }
 
     public String getNombre() {
