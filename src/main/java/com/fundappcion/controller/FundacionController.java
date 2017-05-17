@@ -15,10 +15,7 @@ import java.util.List;
 @Controller
 @RequestMapping("/api/v1/fundaciones")
 public class FundacionController {
-
-    @Autowired
-    FundacionRepository repository;
-
+    
     @Autowired
     FundacionService service;
 
