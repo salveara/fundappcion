@@ -30,6 +30,9 @@ public class SetUp {
         fundacionRepository.save(new Fundacion("321516486","Teleton",
                 "Evento publico para recoger donaciones", "releton@gmail.com",
                 "www.teleton.com", "Medellin", "cll 54e #5422", "12354587"));
-        donacionRepository.save(new Donacion("12354-54", "54631-5846", new Date(), "Televisor muy bueno", 1, "www.imagen.com", "valido"));
+        donacionRepository.save(new Donacion("12354-54", "54631-5846", new Date(),
+                "Televisor muy bueno", 1, "www.imagen.com", "valido"));
+        donacionRepository.save(new Donacion("gdhf54-54", "fhdg31-5846", new Date(),
+                "Radio muy bueno", 2, "www.radio.com", "valido"));
     }
 }

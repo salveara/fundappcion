@@ -40,4 +40,68 @@ public class Donacion {
         this.imagen = imagen;
         this.validacion = validacion;
     }
+
+    public String getCodigo() {
+        return codigo;
+    }
+
+    public void setCodigo(String codigo) {
+        this.codigo = codigo;
+    }
+
+    public String getDonante() {
+        return donante;
+    }
+
+    public void setDonante(String donante) {
+        this.donante = donante;
+    }
+
+    public String getFundacion() {
+        return fundacion;
+    }
+
+    public void setFundacion(String fundacion) {
+        this.fundacion = fundacion;
+    }
+
+    public Date getFechaDonacion() {
+        return fechaDonacion;
+    }
+
+    public void setFechaDonacion(Date fechaDonacion) {
+        this.fechaDonacion = fechaDonacion;
+    }
+
+    public String getDescripcion() {
+        return descripcion;
+    }
+
+    public void setDescripcion(String descripcion) {
+        this.descripcion = descripcion;
+    }
+
+    public int getCantidad() {
+        return cantidad;
+    }
+
+    public void setCantidad(int cantidad) {
+        this.cantidad = cantidad;
+    }
+
+    public String getImagen() {
+        return imagen;
+    }
+
+    public void setImagen(String imagen) {
+        this.imagen = imagen;
+    }
+
+    public String getValidacion() {
+        return validacion;
+    }
+
+    public void setValidacion(String validacion) {
+        this.validacion = validacion;
+    }
 }

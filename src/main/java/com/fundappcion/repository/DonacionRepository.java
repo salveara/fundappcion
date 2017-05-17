@@ -13,6 +13,10 @@ public interface DonacionRepository extends CrudRepository<Donacion, String> {
 
     List<Donacion> findAll();
 
+    List<Donacion> findByDonanteContaining(String donante);
+
+    List<Donacion> findByFundacionContaining(String fundacion);
+
     void delete(Donacion donacion);
 
     boolean exists(String codigo);
