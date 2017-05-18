@@ -26,7 +26,7 @@ public class SwaggerConfig {
 
     private ApiInfo apiInfo() {
         Contact contact = new Contact("Fundappcion",
-                "https://fundappcion.herokuapp.com/",
+                "http://fundappcion.blogspot.com.co/",
                 "servicioalcliente@fundappcion.com");
 
         return new ApiInfo(
