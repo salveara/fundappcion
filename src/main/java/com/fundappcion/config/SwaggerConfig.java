@@ -19,7 +19,7 @@ public class SwaggerConfig {
         return new Docket(DocumentationType.SWAGGER_2)
                 .select()
                 .apis(RequestHandlerSelectors.any())
-                .paths(PathSelectors.any())
+                .paths(PathSelectors.regex("/api/v1.*"))
                 .build()
                 .apiInfo(apiInfo());
     }
@@ -32,8 +32,8 @@ public class SwaggerConfig {
         return new ApiInfo(
                 "FUNDAPPCION",
                 "Servicio web de fundaciones.",
-                "Versión 1",
-                "",
+                "1.0",
+                "Terms of service",
                 contact,
                 "",
                 "");
