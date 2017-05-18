@@ -125,3 +125,4 @@ local.properties
 .worksheet
 
 /.idea/vcs.xml
+/target/

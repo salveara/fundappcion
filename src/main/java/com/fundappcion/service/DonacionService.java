@@ -1,7 +1,6 @@
 package com.fundappcion.service;
 
 import com.fundappcion.entity.Donacion;
-import com.fundappcion.entity.Fundacion;
 import com.fundappcion.repository.DonacionRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
