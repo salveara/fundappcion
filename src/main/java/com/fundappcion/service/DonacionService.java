@@ -39,4 +39,14 @@ public class DonacionService {
     public Donacion getDonationByCode(String code) {
         return repository.findOne(code);
     }
+
+    public boolean checkNotNulleableFields(Donacion donacion) {
+        return stringNotNullOrNotEmpty(donacion.getFundacion())
+                && stringNotNullOrNotEmpty(donacion.getDonante())
+                && donacion.getFechaDonacion() != null;
+    }
+
+    public Donacion findByCode(String code) {
+        return repository.findOne(code);
+    }
 }

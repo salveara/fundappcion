@@ -14,6 +14,6 @@ public class RequestError {
 
     @Override
     public String toString() {
-        return "{ \n tipo: " + tipo + "\n descripcion: " + descripcion + "\n }";
+        return "{ \n  tipo: " + tipo + "\n  descripcion: " + descripcion + "\n}";
     }
 }

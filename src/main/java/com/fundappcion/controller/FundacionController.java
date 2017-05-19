@@ -2,7 +2,6 @@ package com.fundappcion.controller;
 
 import com.fundappcion.config.RequestError;
 import com.fundappcion.entity.Fundacion;
-import com.fundappcion.repository.FundacionRepository;
 import com.fundappcion.service.FundacionService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -36,13 +35,12 @@ public class FundacionController {
 
     @GetMapping(value = "/{nit}")
     public ResponseEntity<Fundacion> getFountationsByNit(@ModelAttribute("nit") String nit) {
-        if (service.stringNotNullOrNotEmpty(nit)) {
             Fundacion fundacion = service.getFoundationsFromNit(nit);
             if (fundacion != null) {
                 return new ResponseEntity<Fundacion>(service.getFoundationsFromNit(nit), HttpStatus.OK);
             }
-        }
-        return new ResponseEntity(new RequestError("Mala petición", "La fundación con el nit dado no existe").toString(), HttpStatus.OK);
+        RequestError requestError = new RequestError("Mala petición", "La fundación con el nit dado no existe");
+        return new ResponseEntity(requestError.toString(), HttpStatus.BAD_REQUEST);
     }
 
     @GetMapping()
@@ -71,6 +69,7 @@ public class FundacionController {
         if (service.foundationExist(nit)) {
             return new ResponseEntity<String>(service.deleteFoundation(nit).getNombre(), HttpStatus.OK);
         }
-        return new ResponseEntity(new RequestError("Mala peticion", "La fundación con el nit dado no existe").toString(), HttpStatus.BAD_REQUEST);
+        RequestError requestError = new RequestError("Mala peticion", "La fundación con el nit dado no existe");
+        return new ResponseEntity(requestError.toString(), HttpStatus.BAD_REQUEST);
     }
 }
