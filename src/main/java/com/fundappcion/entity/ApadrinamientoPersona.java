@@ -9,6 +9,8 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
 
+import io.swagger.annotations.ApiModelProperty;
+
 @Entity
 @Table(name = "APADRINAMIENTO_PERSONAS")
 public class ApadrinamientoPersona {
@@ -39,6 +41,7 @@ public class ApadrinamientoPersona {
         this.tipoAyuda = tipoAyuda;
     }
 
+    @ApiModelProperty(hidden = true)
     public String getCodigo() {
         return codigo;
     }
@@ -47,6 +50,7 @@ public class ApadrinamientoPersona {
         this.codigo = codigo;
     }
 
+    @ApiModelProperty(example = "1233434546", required = true, position = 1)
     public String getIdAhijado() {
         return idAhijado;
     }
@@ -55,6 +59,7 @@ public class ApadrinamientoPersona {
         this.idAhijado = idAhijado;
     }
 
+    @ApiModelProperty(example = "67867654", required = true, position = 2)
     public String getIdPadrino() {
         return idPadrino;
     }
@@ -63,6 +68,7 @@ public class ApadrinamientoPersona {
         this.idPadrino = idPadrino;
     }
 
+    @ApiModelProperty(example = "04-05-2016", required = true, position = 3)
     public Date getFechaInicio() {
         return fechaInicio;
     }
@@ -71,6 +77,7 @@ public class ApadrinamientoPersona {
         this.fechaInicio = fechaInicio;
     }
 
+    @ApiModelProperty(example = "10-04-2017", required = true, position = 4)
     public Date getFechaDonacion() {
         return fechaDonacion;
     }
@@ -79,6 +86,7 @@ public class ApadrinamientoPersona {
         this.fechaDonacion = fechaDonacion;
     }
 
+    @ApiModelProperty(example = "Vestuario", required = true, position = 5)
     public String getTipoAyuda() {
         return tipoAyuda;
     }

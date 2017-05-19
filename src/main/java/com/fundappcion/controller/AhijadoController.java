@@ -18,6 +18,8 @@ import com.fundappcion.config.RequestError;
 import com.fundappcion.entity.Ahijado;
 import com.fundappcion.service.AhijadoService;
 
+import io.swagger.annotations.Api;
+
 @Controller
 @RequestMapping("/api/v1/apadrinamiento/personas")
 public class AhijadoController {

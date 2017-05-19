@@ -54,6 +54,7 @@ public class Donacion {
         this.codigo = codigo;
     }
 
+    @ApiModelProperty(example = "1235456554", required = true, position = 1)
     public String getDonante() {
         return donante;
     }
@@ -62,6 +63,7 @@ public class Donacion {
         this.donante = donante;
     }
 
+    @ApiModelProperty(example = "654123165", required = true, position = 2)
     public String getFundacion() {
         return fundacion;
     }
@@ -70,6 +72,7 @@ public class Donacion {
         this.fundacion = fundacion;
     }
 
+    @ApiModelProperty(example = "14-05-2017", required = true, position = 3)
     public Date getFechaDonacion() {
         return fechaDonacion;
     }
@@ -78,6 +81,7 @@ public class Donacion {
         this.fechaDonacion = fechaDonacion;
     }
 
+    @ApiModelProperty(example = "Televisor", required = true, position = 4)
     public String getDescripcion() {
         return descripcion;
     }
@@ -86,6 +90,7 @@ public class Donacion {
         this.descripcion = descripcion;
     }
 
+    @ApiModelProperty(example = "3", required = true, position = 5)
     public int getCantidad() {
         return cantidad;
     }
@@ -94,6 +99,7 @@ public class Donacion {
         this.cantidad = cantidad;
     }
 
+    @ApiModelProperty(example = "imagen.jpg", position = 6)
     public String getImagen() {
         return imagen;
     }
@@ -102,7 +108,7 @@ public class Donacion {
         this.imagen = imagen;
     }
 
-    @ApiModelProperty(example = "No validado")
+    @ApiModelProperty(example = "No validado", position = 7)
     public String getValidacion() {
         return validacion;
     }
