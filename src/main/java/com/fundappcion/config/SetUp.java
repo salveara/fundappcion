@@ -4,10 +4,12 @@ import com.fundappcion.entity.Ahijado;
 import com.fundappcion.entity.ApadrinamientoPersona;
 import com.fundappcion.entity.Donacion;
 import com.fundappcion.entity.Fundacion;
+import com.fundappcion.entity.ApadrinamientoMascota;
 import com.fundappcion.repository.AhijadoRepository;
 import com.fundappcion.repository.ApadrinamientoPersonaRepository;
 import com.fundappcion.repository.DonacionRepository;
 import com.fundappcion.repository.FundacionRepository;
+import com.fundappcion.repository.ApadrinamientoMascotaRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
@@ -30,6 +32,9 @@ public class SetUp {
     
     @Autowired
     ApadrinamientoPersonaRepository apadrinamientoPersonaRepository;
+
+    @Autowired
+    ApadrinamientoMascotaRepository apadrinamientoMascotaRepository;
 
     @PostConstruct
     public void createData() {
@@ -55,5 +60,9 @@ public class SetUp {
         
         apadrinamientoPersonaRepository.save(new ApadrinamientoPersona("2342434", "7868678787", new Date(), new Date(), "ropa"));
         apadrinamientoPersonaRepository.save(new ApadrinamientoPersona("9879798", "7978979979", new Date(), new Date(), "juguetes"));
+
+        apadrinamientoMascotaRepository.save(new ApadrinamientoMascota("200", "591a3e649fb6b704aff3794c"));
+        apadrinamientoMascotaRepository.save(new ApadrinamientoMascota("300", "95a4f6649tt6b704uuf3794w"));
+        
     }
 }
