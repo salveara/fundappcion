@@ -1,5 +1,8 @@
 package com.fundappcion.entity;
 
+import io.swagger.annotations.ApiModel;
+import io.swagger.annotations.ApiModelProperty;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -10,6 +13,7 @@ import java.util.Date;
 
 @Entity
 @Table(name = "DONACION")
+@ApiModel
 public class Donacion {
 
     @Id
@@ -41,6 +45,7 @@ public class Donacion {
         this.validacion = validacion;
     }
 
+    @ApiModelProperty(hidden = true)
     public String getCodigo() {
         return codigo;
     }
@@ -97,6 +102,7 @@ public class Donacion {
         this.imagen = imagen;
     }
 
+    @ApiModelProperty(example = "No validado")
     public String getValidacion() {
         return validacion;
     }

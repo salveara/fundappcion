@@ -1,14 +1,16 @@
 package com.fundappcion.entity;
 
+import io.swagger.annotations.ApiModel;
+import io.swagger.annotations.ApiModelProperty;
+
 import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
 
 @Entity
 @Table(name = "FUDACION")
+@ApiModel
 public class Fundacion {
 
     @Id
@@ -38,6 +40,7 @@ public class Fundacion {
         this.telefono = telefono;
     }
 
+    @ApiModelProperty(example = "654123165")
     public String getNit() {
         return nit;
     }
@@ -46,6 +49,7 @@ public class Fundacion {
         this.nit = nit;
     }
 
+    @ApiModelProperty(example = "Fundación orca", required = true, position = 1)
     public String getNombre() {
         return nombre;
     }
@@ -54,6 +58,7 @@ public class Fundacion {
         this.nombre = nombre;
     }
 
+    @ApiModelProperty(example = "Fundación que protege los derechos de los animales", position = 2)
     public String getDescripcion() {
         return descripcion;
     }
@@ -62,6 +67,7 @@ public class Fundacion {
         this.descripcion = descripcion;
     }
 
+    @ApiModelProperty(example = "fundacionorca@gmail.com", required = true, position = 3)
     public String getCorreo() {
         return correo;
     }
@@ -70,6 +76,7 @@ public class Fundacion {
         this.correo = correo;
     }
 
+    @ApiModelProperty(example = "www.fundacionorca.com.co", position = 4)
     public String getPagina() {
         return pagina;
     }
@@ -78,6 +85,7 @@ public class Fundacion {
         this.pagina = pagina;
     }
 
+    @ApiModelProperty(example = "Bogota", position = 5)
     public String getCiudad() {
         return ciudad;
     }
@@ -86,6 +94,7 @@ public class Fundacion {
         this.ciudad = ciudad;
     }
 
+    @ApiModelProperty(example = "Crr 56 sur # 33b-56", position = 6)
     public String getDireccion() {
         return direccion;
     }
@@ -94,6 +103,7 @@ public class Fundacion {
         this.direccion = direccion;
     }
 
+    @ApiModelProperty(example = "5699854", position = 7)
     public String getTelefono() {
         return telefono;
     }
