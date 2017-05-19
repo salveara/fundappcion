@@ -41,7 +41,7 @@ public class ApadrinamientoController {
             }
         }
         return new ResponseEntity(new RequestError("Mala petición", "El apadrinamiento con el codigo dado no existe").toString(), 
-                HttpStatus.OK);
+                HttpStatus.BAD_REQUEST);
     }
 
     @GetMapping()

@@ -48,7 +48,7 @@ public class AhijadoController {
                 return new ResponseEntity<Ahijado>(service.getAhijadoById(id), HttpStatus.OK);
             }
         }
-        return new ResponseEntity(new RequestError("Mala petición", "El ahijado con el id dado dado no existe").toString(), HttpStatus.OK);
+        return new ResponseEntity(new RequestError("Mala petición", "El ahijado con el id dado dado no existe").toString(), HttpStatus.BAD_REQUEST);
     }
     
     @GetMapping()
